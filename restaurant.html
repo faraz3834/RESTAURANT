@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarFood | Premium Dining</title>
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="script.css">
+</head>
+<body>
+
+    <!-- Navigation Bar & Custom SVG Logo -->
+    <nav>
+        <div class="logo-container">
+            <svg viewBox="0 0 100 100" width="40" height="40">
+                <polygon points="50,5 61,35 95,35 68,54 79,85 50,65 21,85 32,54 5,35 39,35" fill="#f59e0b" />
+                <text x="50" y="56" font-family="Arial, sans-serif" font-weight="900" font-size="24" fill="#111827" text-anchor="middle" dominant-baseline="middle">SF</text>
+            </svg>
+            StarFood
+        </div>
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#order">Place Order</a>
+            <a href="#login">Login</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Taste the Stars</h1>
+        <p>Premium dining experience blending classic Indian flavors, authentic Chinese wok dishes, and heavenly desserts.</p>
+        <a href="#menu" class="btn">Explore Menu</a>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        
+        <div class="menu-filters">
+            <button class="btn btn-outline filter-btn" onclick="filterMenu('all')">All</button>
+            <button class="btn btn-outline filter-btn" onclick="filterMenu('veg')">Vegetarian</button>
+            <button class="btn btn-outline filter-btn" onclick="filterMenu('nonveg')">Non-Veg</button>
+            <button class="btn btn-outline filter-btn" onclick="filterMenu('chinese')">Chinese</button>
+            <button class="btn btn-outline filter-btn" onclick="filterMenu('dessert')">Desserts</button>
+        </div>
+
+        <div class="menu-grid" id="menu-grid">
+            <!-- Veg Items -->
+            <div class="menu-card" data-category="veg">
+                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=400&q=80" alt="Dal Makhani">
+                <div class="menu-info">
+                    <h3>Signature Dal Makhani</h3>
+                    <p>Slow-cooked black lentils simmered overnight with butter and fresh cream, served with steamed rice.</p>
+                    <div class="price-row">
+                        <span>₹320</span>
+                        <button class="btn" style="padding: 6px 12px; font-size: 0.9rem;" onclick="addToOrder('Signature Dal Makhani')">Add</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-card" data-category="veg">
+                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80" alt="Paneer Tikka">
+                <div class="menu-info">
+                    <h3>Paneer Tikka Masala</h3>
+                    <p>Charcoal-grilled cottage cheese cubes cooked in a rich, spiced tomato gravy.</p>
+                    <div class="price-row">
+                        <span>₹350</span>
+                        <button class="btn" style="padding: 6px 12px; font-size: 0.9rem;" onclick="addToOrder('Paneer Tikka Masala')">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Non-Veg Items -->
+            <div class="menu-card" data-category="nonveg">
+                <img src="https://images.unsplash.com/photo-1589302168068-964664d93cb0?auto=format&fit=crop&w=400&q=80" alt="Biryani">
+                <div class="menu-info">
+                    <h3>Royal Mutton Biryani</h3>
+                    <p>Tender mutton pieces layered with fragrant basmati rice and aromatic saffron spices.</p>
+                    <div class="price-row">
+                        <span>₹450</span>
+                        <button class="btn" style="padding: 6px 12px; font-size: 0.9rem;" onclick="addToOrder('Royal Mutton Biryani')">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="nonveg">
+                <img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=400&q=80" alt="Butter Chicken">
+                <div class="menu-info">
+                    <h3>Classic Butter Chicken</h3>
+                    <p>Marinated chicken roasted in a tandoor and served in a mildly spiced curry sauce.</p>
+                    <div class="price-row">
+                        <span>₹420</span>
+                        <button class="btn" style="padding: 6px 12px; font-size: 0.9rem;" onclick="addToOrder('Classic Butter Chicken')">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chinese Items -->
+            <div class="menu-card" data-category="chinese">
+                <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=400&q=80" alt="Chilli Potatoes">
+                <div class="menu-info">
+                    <h3>Crispy Sweet Chilli Potatoes</h3>
+                    <p>Fried potato wedges tossed in a fiery, sweet, and sticky garlic soy glaze with sesame seeds.</p>
+                    <div class="price-row">
+                        <span>₹260</span>
+                        <button class="btn" style="padding: 6px 12px; font-size: 0.9rem;" onclick="addToOrder('Crispy Sweet Chilli Potatoes')">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="chinese">
+                <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=400&q=80" alt="Hakka Noodles">
+                <div class="menu-info">
+                    <h3>Veg Hakka Noodles</h3>
+                    <p>Wok-tossed noodles with shredded cabbage, carrots, bell peppers, and soy sauce.</p>
+                    <div class="price-row">
+                        <span>₹220</span>
+                        <button class="btn" style="padding: 6px 12px; font-size: 0.9rem;" onclick="addToOrder('Veg Hakka Noodles')">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="menu-card" data-category="dessert">
+                <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=400&q=80" alt="Lava Cake">
+                <div class="menu-info">
+                    <h3>Choco Lava Cake</h3>
+                    <p>Warm chocolate cake with a molten chocolate center, served with vanilla bean ice cream.</p>
+                    <div class="price-row">
+                        <span>₹180</span>
+                        <button class="btn" style="padding: 6px 12px; font-size: 0.9rem;" onclick="addToOrder('Choco Lava Cake')">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="dessert">
+                <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=400&q=80" alt="Ice Cream">
+                <div class="menu-info">
+                    <h3>Sizzling Brownie</h3>
+                    <p>Hot walnut brownie placed on a sizzling skillet, topped with ice cream and melted fudge.</p>
+                    <div class="price-row">
+                        <span>₹250</span>
+                        <button class="btn" style="padding: 6px 12px; font-size: 0.9rem;" onclick="addToOrder('Sizzling Brownie')">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Place Order Section -->
+    <section id="order" style="background-color: #0b1120;">
+        <h2 class="section-title">Place Your Order</h2>
+        <div class="form-container">
+            <form onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label for="order-item">Select Item</label>
+                    <select id="order-item" required>
+                        <option value="" disabled selected>Choose a dish...</option>
+                        <option value="Signature Dal Makhani">Signature Dal Makhani - ₹320</option>
+                        <option value="Paneer Tikka Masala">Paneer Tikka Masala - ₹350</option>
+                        <option value="Royal Mutton Biryani">Royal Mutton Biryani - ₹450</option>
+                        <option value="Classic Butter Chicken">Classic Butter Chicken - ₹420</option>
+                        <option value="Crispy Sweet Chilli Potatoes">Crispy Sweet Chilli Potatoes - ₹260</option>
+                        <option value="Veg Hakka Noodles">Veg Hakka Noodles - ₹220</option>
+                        <option value="Choco Lava Cake">Choco Lava Cake - ₹180</option>
+                        <option value="Sizzling Brownie">Sizzling Brownie - ₹250</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <textarea id="address" rows="3" placeholder="Enter your full address" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Confirm Order</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Login Interface Section -->
+    <section id="login">
+        <h2 class="section-title">Account Login</h2>
+        <div class="form-container">
+            <div class="login-tabs">
+                <div class="login-tab active" onclick="switchLoginType('phone')">Phone Number</div>
+                <div class="login-tab" onclick="switchLoginType('email')">Email Address</div>
+            </div>
+
+            <form onsubmit="submitLogin(event)">
+                <!-- Dynamic Input Field -->
+                <div class="form-group" id="dynamic-input-group">
+                    <label for="user-id">Phone Number</label>
+                    <input type="tel" id="user-id" placeholder="Enter 10-digit number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password (Max 16 characters)</label>
+                    <input type="password" id="password" maxlength="16" placeholder="Enter your password" required>
+                    <small style="color: #9ca3af; font-size: 0.8rem; display: block; margin-top: 5px;">Must not exceed 16 characters.</small>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">Secure Login</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Order Confirmation Popup -->
+    <div id="order-popup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-icon">✨</div>
+            <h3>Order Confirmed!</h3>
+            <p id="popup-message">Your order has been placed successfully.</p>
+            <button class="btn" onclick="closePopup()">Awesome!</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 StarFood Restaurant. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
